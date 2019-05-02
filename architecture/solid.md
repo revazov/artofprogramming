@@ -82,10 +82,11 @@ private:
   vector<int> bookmarks;
 };
 
-class BookPublisher
+class BookPublisher // Издатель
 {
 public:
   void printBook(Book book);
+  
 private:
   string _publisherName;
 };
