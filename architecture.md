@@ -13,7 +13,7 @@
 
 Класс `Book`, приведённый ниже, имеет две причины для изменения: 
 
-- если зменится логика печати книги
+- если изменится логика печати книги
 - если изменится формат(структура) книги
 
 ```c++
@@ -50,18 +50,23 @@ private:
 Разобьем класс `Book` согласно принципу:
 
 ```c++
-struct Book // Хранение данных
+class Book // Хранение данных
 {
+public:
   vector<Page> _pages;
   string _title;
   string _authorName;
 };
+```
 
+Класс `Book` теперь отвечает только за хранение данных.
+
+```c++
 class BookWriter // Писатель
 {
 public:
   void beginBook(string title);
-  void addPage(Book &book, Page page);
+  void addPage(Page page);
   Book getBook();
   
 private:
